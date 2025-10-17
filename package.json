@@ -13,7 +13,7 @@
     "prestart": "node setup.cjs",
     "sync-deps": "npm install && npm dedupe",
     "prepare": "node scripts/prepare.js",
-    "build": "node scripts/build.js"
+    "build": "NODE_ENV=production npm run build"
   },
   "keywords": [],
   "author": "Rahul Tamatta",
@@ -62,7 +62,9 @@
     "slugify": "^1.6.5",
     "util": "^0.12.5",
     "uuid": "^8.3.2",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
