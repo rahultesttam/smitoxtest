@@ -6,8 +6,10 @@ ENV NPM_CONFIG_LEGACY_PEER_DEPS=true
 ENV NPM_CONFIG_UNSAFE_PERM=true
 ENV CI=true
 
+# Copy package files first
 COPY package*.json .npmrc ./
 
+# Install dependencies with legacy peer deps
 RUN if [ -f package-lock.json ]; then \
       echo "Found package-lock.json — running npm ci"; \
       npm ci --unsafe-perm --legacy-peer-deps; \
@@ -16,14 +18,12 @@ RUN if [ -f package-lock.json ]; then \
       npm install --unsafe-perm --legacy-peer-deps; \
     fi
 
+# Copy source and build
 COPY . .
-
 RUN npm run build
 
+# Start command
 CMD ["npm", "run", "start"]
-    fi
-
-# Copy full source and build client assets
 COPY . .
 
 # Build step (root package.json build now runs client build)
