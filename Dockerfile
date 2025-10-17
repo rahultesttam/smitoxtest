@@ -5,7 +5,7 @@ WORKDIR /app/
 # Use nixpkgs to install a specific Node.js version
 RUN nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 RUN nix-channel --update
-RUN nix-env -iA nixpkgs.nodejs_18
+RUN nix-env -iA nixpkgs.nodejs_20
 
 # Copy package files and clean npm cache
 COPY package*.json .npmrc ./
