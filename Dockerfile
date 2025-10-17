@@ -2,7 +2,9 @@ FROM ghcr.io/railwayapp/nixpacks:ubuntu-1745885067
 
 WORKDIR /app/
 
-# Install Node.js and npm first
+# Use nixpkgs-install for Node.js and npm
+RUN nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+RUN nix-channel --update
 RUN nix-env -iA nixpkgs.nodejs nixpkgs.nodePackages.npm
 
 # Copy package files and clean npm cache
