@@ -6,6 +6,12 @@ WORKDIR /app/
 RUN nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 RUN nix-channel --update
 RUN nix-env -iA nixpkgs.nodejs_20
+# Install native build toolchain for node-gyp dependencies (e.g., bcrypt)
+RUN nix-env -iA \
+    nixpkgs.python3 \
+    nixpkgs.gcc \
+    nixpkgs.gnumake \
+    nixpkgs.pkg-config
 
 # Copy package files and clean npm cache
 COPY package*.json .npmrc ./
