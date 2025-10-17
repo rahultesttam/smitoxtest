@@ -1,0 +1,223 @@
+/* Homepage.css */
+body {
+  background-color: #f1f3f6;
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page {
+  padding-top: 60px; /* Add padding to account for fixed header */
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Header and Search Bar Fixes */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #c41e3a;
+}
+
+.search-container {
+  position: fixed;
+  top: 60px; /* Position below header */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #2874f0;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Banner Container */
+.banner-container {
+  margin-top: 0px;
+  padding: 0px 0px;
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Category Styles */
+.category-section {
+  background-color: white;
+  margin-top: 15px;
+  padding: 15px 0;
+}
+
+.category-slider {
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.category-item {
+  padding: 5px;
+  text-align: center;
+}
+
+.category-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+/* Products Grid */
+.product-grid {
+  margin-top: 15px;
+  padding: 0 10px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .home-page {
+    padding-top: 110px; /* Increased padding to account for header + search */
+  }
+
+  .search-container {
+    top: 50px; /* Adjusted for mobile header height */
+  }
+
+  .banner-container {
+    margin-top: 5px;
+    padding: 0 5px;
+  }
+
+  .banner-image {
+    height: 200px;
+  }
+
+  .category-circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .category-name {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .product-grid {
+    padding: 0 5px;
+  }
+}
+
+/* Utility Classes */
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+}
+
+/* Fix for iOS Safari bouncing */
+.ios-fix {
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Prevent horizontal scroll */
+.prevent-scroll {
+  overflow-x: hidden;
+}
+
+/* Enhanced Loading States */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Smooth transitions */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+/* Fix for banner slider dots */
+.slick-dots {
+  bottom: 15px;
+  z-index: 1;
+}
+
+.slick-dots li button:before {
+  color: white;
+}
+
+
+/* Default styles for searchInput */
+.searchInput {
+  max-width: 600px; /* Adjust for larger screens */
+  margin: 0 auto;   /* Center the input box */
+}
+
+/* Padding for mobile view */
+@media (max-width: 768px) {
+  .searchInput {
+    padding: 20px 15px; /* Reduced padding for mobile view */
+  }
+
+  .searchInput input {
+    padding: 10px 15px;  /* Adjust input padding */
+    font-size: 16px;      /* Increase font size for better readability */
+  }
+}
+
+/* Larger screen sizes */
+@media (min-width: 769px) {
+  .searchInput {
+    padding: 80px 20px; /* Larger padding for larger screens */
+  }
+
+  .searchInput input {
+    padding: 15px 20px; /* Adjust input padding for larger screens */
+    font-size: 18px;
+  }
+}
+
+/* Optional: Styling for input */
+.searchInput input {
+  width: 100%;
+  border-radius: 20px;  /* Rounded corners for the search bar */
+  border: 1px solid #ccc; /* Border color */
+  outline: none;
+}
